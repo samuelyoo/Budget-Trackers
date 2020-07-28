@@ -1,7 +1,7 @@
 // console.log('hey Im ready')
 
-const CACHE_NAME = "my-site-chache-v1";
-const DATA_CACHE_NAME = "data-cache-v1";
+const cacheName = "my-site-chache-v1";
+const cacheDataName = "data-cache-v1";
 
 var urlsToCache = [
     "/",
@@ -15,8 +15,8 @@ var urlsToCache = [
 
 self.addEventListener("install", function(event){
     event.waitUntil(
-        cache.open(CACHE_NAME).then(function(chache) {
-            console.log("Open chace");
+        cache.open(cacheName).then(function(chache) {
+            console.log("Open cache");
             return chache.addAll(filesToCache);
         })
     )
@@ -26,7 +26,7 @@ self.addEventListener("fetch", function(event){
     
     if (event.requrest.url.includes("/api/")) {
         event.respondWith(
-            caches.open(DATA_CACHE_NAME).then(cache => {
+            caches.open(cacheDataName).then(cache => {
                 return(response => {
                     if (response.status === 200){
                         cache.put(event.request.url, response.clone());
