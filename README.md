@@ -27,7 +27,7 @@ When user click the button, input fund data will add or subtract, and the fund i
 
 ## Sample
 
-### video(youtube)
+### Screenshot
 ![sample](/assets/demo.png)
 
 ## Technologies
